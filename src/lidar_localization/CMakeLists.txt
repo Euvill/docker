@@ -6,6 +6,8 @@ SET(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
 add_compile_options(-std=c++11)
 add_definitions(-std=c++11)
 
+SET(cv_bridge_DIR /usr/local/share/cv_bridge/cmake)
+
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
@@ -42,6 +44,11 @@ include(cmake/geographic.cmake)
 include(cmake/g2o.cmake)
 include(cmake/sophus.cmake)
 include(cmake/opencv.cmake)
+
+message(STATUS "opencv version: ${OpenCV_VERSION}")
+message(STATUS "opencv lib: ${OpenCV_LIBS}")
+message(STATUS "opencv include dir: ${OpenCV_INCLUDE_DIRS}")
+message(STATUS "opencv config path: ${OpenCV_CONFIG_PATH}")
 
 include_directories(include ${catkin_INCLUDE_DIRS})
 include(cmake/global_defination.cmake)
